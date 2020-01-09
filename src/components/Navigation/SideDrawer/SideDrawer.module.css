@@ -26,6 +26,10 @@
     transform: translateX(-100%);
 }
 
+.Close .Logo{
+    display: none;
+}
+
 .Logo {
     height: 11%;
     margin-bottom: 32px;
