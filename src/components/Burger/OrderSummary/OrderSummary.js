@@ -2,6 +2,7 @@ import React from "react";
 
 import Aux from "../../../hoc/Aux/Aux";
 import Button from "../../UI/Button/Button";
+import {Link} from "react-router-dom";
 
 const orderSummary = (props) => {
     const ingredientSummary = Object.keys(props.ingredients)
@@ -23,7 +24,7 @@ const orderSummary = (props) => {
             <p><strong>Total price: {props.price.toFixed(2)} zł</strong></p>
             <p>Continue to checkout?</p>
             <Button btnType="Danger" clicked={props.purchaseCancelled}>Cancel</Button>
-            <Button btnType="Success" clicked={props.purchaseContinued}>Continue</Button>
+            <Button btnType="Success" clicked={props.purchaseContinued}><Link to="/checkout">Continue</Link></Button>
         </Aux>
     )
 };
