@@ -18,16 +18,19 @@ function getInputByType(props) {
             return <input
                 className={classes.InputElement}
                 {...props.elementConfig}
-                value={props.value}/>;
+                value={props.value}
+                onChange={props.changed}/>;
         case('textarea'):
             return <textarea
                 className={classes.InputElement}
                 {...props.elementConfig}
-                value={props.value}/>;
+                value={props.value}
+                onChange={props.changed}/>;
         case('select'):
             return <select
                 className={classes.InputElement}
-                value={props.value}>
+                value={props.value}
+                onChange={props.changed}>
                 {props.elementConfig.options.map(option => (
                     <option key={option.value} value={option.value}>{option.displayValue}</option>
                 ))}
@@ -36,7 +39,8 @@ function getInputByType(props) {
             return <input
                 className={classes.InputElement}
                 {...props.elementConfig}
-                value={props.value}/>;
+                value={props.value}
+                onChange={props.changed}/>;
     }
 }
 
