@@ -13,22 +13,28 @@ const input = (props) => {
 };
 
 function getInputByType(props) {
+    const inputClasses = [classes.InputElement];
+
+    if (props.invalid && props.shouldValidate) {
+        inputClasses.push(classes.Invalid)
+    }
+
     switch (props.elementType) {
         case('input'):
             return <input
-                className={classes.InputElement}
+                className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed}/>;
         case('textarea'):
             return <textarea
-                className={classes.InputElement}
+                className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed}/>;
         case('select'):
             return <select
-                className={classes.InputElement}
+                className={inputClasses.join(' ')}
                 value={props.value}
                 onChange={props.changed}>
                 {props.elementConfig.options.map(option => (
@@ -37,7 +43,7 @@ function getInputByType(props) {
             </select>;
         default:
             return <input
-                className={classes.InputElement}
+                className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed}/>;
