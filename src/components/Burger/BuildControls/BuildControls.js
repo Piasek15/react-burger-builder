@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import classes from './BuildControls.module.css'
 import BuildControl from "./BuildControl/BuildControl";
 
-const constrols = [
+const controls = [
     {label: 'Tomato', type: 'tomato'},
     {label: 'Salad', type: 'salad'},
     {label: 'Bacon', type: 'bacon'},
@@ -15,14 +15,14 @@ const constrols = [
 const buildControls = (props) => (
     <div className={classes.BuildControls}>
         <p>Current Price: <strong>{props.price.toFixed(2)}</strong> zł</p>
-        {constrols.map(ctrl => (
+        {controls.map(ctrl => (
             <BuildControl
                 key={ctrl.label}
                 label={ctrl.label}
                 added={() => props.ingredientAdded(ctrl.type)}
                 removed={() => props.ingredientRemoved(ctrl.type)}
                 disabled={props.disabled[ctrl.type]}
-                />
+            />
         ))}
         <button
             className={classes.OrderButton}
