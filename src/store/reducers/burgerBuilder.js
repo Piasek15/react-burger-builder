@@ -52,7 +52,13 @@ const removeIngredient = (state, action) => {
 
 const setIngredients = (state, action) => {
     return updateObject(state, {
-        ingredients: action.ingredients,
+        ingredients: {
+            tomato: action.ingredients.tomato,
+            salad: action.ingredients.salad,
+            bacon: action.ingredients.bacon,
+            cheese: action.ingredients.cheese,
+            meat: action.ingredients.meat,
+        },
         error: false
     });
 };
