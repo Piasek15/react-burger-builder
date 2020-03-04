@@ -31,11 +31,9 @@ const burgerBuilder = (state = initialState, action) => {
 };
 
 const addIngredient = (state, action) => {
+    const updatedIngredients = updateObject(state.ingredients, {[action.ingredient]: state.ingredients[action.ingredient] + 1});
     return updateObject(state, {
-        ingredients: {
-            ...state.ingredients,
-            [action.ingredient]: state.ingredients[action.ingredient] + 1
-        },
+        ingredients: updatedIngredients,
         totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredient]
     });
 };
